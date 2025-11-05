@@ -1,0 +1,125 @@
+[
+  {
+    "id": "ngs-360-3",
+    "name": "NGS-360-3",
+    "subtitle": "Next Generation Simulator",
+    "description": "Revolutionary 360-degree simulation platform designed for defense and industrial training. Precision engineering meets cutting-edge technology.",
+    "image": "/assets/ngs3603-blank-1920x1080.png",
+    "category": "Premium Simulator",
+    "specifications": {
+      "displayTechnology": "360° Panoramic Projection System",
+      "resolution": "4K+ Per Screen (Multi-Channel)",
+      "fieldOfView": "Full 360° Horizontal / 180° Vertical",
+      "refreshRate": "120Hz+ (Low Latency Mode)",
+      "processingUnit": "Multi-GPU Rendering Cluster",
+      "operatingSystem": "Custom Real-Time Linux Kernel",
+      "network": "10GbE / Fiber Optic Ready",
+      "powerRequirements": "220-240V, 50-60Hz, 3-Phase",
+      "dimensions": "5m (Diameter) × 3m (Height)",
+      "weight": "Approx. 2,500 kg (Complete System)",
+      "compliance": "MIL-STD-810G, NATO STANAG, MIL-STD-2525D",
+      "warranty": "3 Years Full Coverage + Support"
+    },
+    "features": [
+      "Complete 360° panoramic coverage",
+      "Military-grade precision components",
+      "Modular scalable architecture",
+      "High-fidelity graphics rendering",
+      "Real-time analytics dashboard",
+      "Multi-scenario support library",
+      "Seamless hardware integration",
+      "Networked collaborative operations",
+      "Ruggedized industrial design"
+    ],
+    "applications": [
+      "Military Training",
+      "Aviation & Flight Simulation",
+      "Naval Operations",
+      "Ground Vehicle Training",
+      "Emergency Response",
+      "Industrial Safety",
+      "Medical Training",
+      "Research & Development"
+    ]
+  },
+  {
+    "id": "ngs-5000",
+    "name": "NGS-5000",
+    "subtitle": "Professional Motion Platform",
+    "description": "Advanced 6-DOF motion platform with precision servo control and real-time force feedback. Designed for high-fidelity vehicle and aircraft simulation.",
+    "image": "/assets/ngs5000-blank-1920x1080.png",
+    "category": "Motion Platform",
+    "specifications": {
+      "displayTechnology": "Multi-Screen Projection System",
+      "resolution": "4K Per Screen",
+      "fieldOfView": "220° Horizontal / 90° Vertical",
+      "refreshRate": "90Hz+",
+      "processingUnit": "Dual GPU Workstation",
+      "operatingSystem": "Real-Time Linux / Windows Compatible",
+      "network": "Gigabit Ethernet",
+      "powerRequirements": "220V, 50-60Hz, Single/3-Phase",
+      "dimensions": "4m (L) × 3m (W) × 2.5m (H)",
+      "weight": "Approx. 1,800 kg",
+      "compliance": "MIL-STD-810G, ISO 9001, APP-6D",
+      "warranty": "3 Years Full Coverage"
+    },
+    "features": [
+      "6-DOF motion control",
+      "Precision servo actuators",
+      "Real-time force feedback",
+      "Beckhoff industrial control",
+      "Advanced motion cueing algorithms",
+      "Configurable cockpit layouts",
+      "Emergency stop systems",
+      "Remote monitoring capabilities"
+    ],
+    "applications": [
+      "Flight Training",
+      "Vehicle Simulation",
+      "Heavy Equipment Training",
+      "Maritime Simulation",
+      "Racing Simulation",
+      "Industrial Equipment Training"
+    ]
+  },
+  {
+    "id": "ngs-mini-trainer",
+    "name": "NGS-Mini Trainer",
+    "subtitle": "Compact Training Solution",
+    "description": "Cost-effective compact simulator for basic training and skill development. Perfect for educational institutions and small-scale training centers.",
+    "image": "/assets/ngs-mini-blank-1920x1080.png",
+    "category": "Entry Level",
+    "specifications": {
+      "displayTechnology": "Triple-Screen HD Display",
+      "resolution": "1920×1080 Per Screen",
+      "fieldOfView": "180° Horizontal / 60° Vertical",
+      "refreshRate": "60Hz",
+      "processingUnit": "Single GPU Workstation",
+      "operatingSystem": "Windows 10/11 Compatible",
+      "network": "Ethernet / Wi-Fi",
+      "powerRequirements": "110-240V, 50-60Hz, Standard",
+      "dimensions": "2m (L) × 1.5m (W) × 1.8m (H)",
+      "weight": "Approx. 350 kg",
+      "compliance": "CE Certified, ISO 9001",
+      "warranty": "2 Years Coverage"
+    },
+    "features": [
+      "Compact footprint design",
+      "Triple-screen HD display",
+      "Adjustable seating position",
+      "Standard peripheral support",
+      "Easy setup and deployment",
+      "Cost-effective solution",
+      "Educational software packages",
+      "Low maintenance requirements"
+    ],
+    "applications": [
+      "Driver Education",
+      "Basic Flight Training",
+      "Equipment Familiarization",
+      "Procedure Training",
+      "Academic Research",
+      "Skills Assessment"
+    ]
+  }
+]
