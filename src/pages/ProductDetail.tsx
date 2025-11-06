@@ -4,23 +4,45 @@ import { ArrowLeft, Download, Layers, CheckCircle } from 'lucide-react';
 import { useState } from 'react';
 import productsData from '@/data/products.json';
 import { useComparisonStore } from '@/store/comparison';
+import { useTranslation } from 'react-i18next';
 
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
   const [activeTab, setActiveTab] = useState<'overview' | 'specifications' | 'applications'>('overview');
   const { product1, product2, setProduct1, setProduct2 } = useComparisonStore();
+  const { t } = useTranslation();
 
   const product = productsData.find((p) => p.id === id);
 
-  if (!product) {
+  // Get translated product data
+  const getTranslatedProduct = () => {
+    if (!product) return null;
+    const translationKey = `productData.${product.id}`;
+    return {
+      ...product,
+      subtitle: t(`${translationKey}.subtitle`, { defaultValue: product.subtitle }),
+      description: t(`${translationKey}.description`, { defaultValue: product.description }),
+      category: t(`${translationKey}.category`, { defaultValue: product.category }),
+      features: product.features.map((_, index) => 
+        t(`${translationKey}.features.${index}`, { defaultValue: product.features[index] })
+      ),
+      applications: product.applications.map((_, index) =>
+        t(`${translationKey}.applications.${index}`, { defaultValue: product.applications[index] })
+      ),
+    };
+  };
+
+  const translatedProduct = getTranslatedProduct();
+
+  if (!product || !translatedProduct) {
     return (
       <div className="min-h-screen pt-24 pb-20 px-6 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl font-orbitron font-bold text-white mb-4">
-            Product Not Found
+            {t('productDetail.notFound')}
           </h1>
           <Link to="/products" className="text-industrial hover:underline font-exo">
-            Back to Products
+            {t('productDetail.backToProducts')}
           </Link>
         </div>
       </div>
@@ -54,7 +76,7 @@ const ProductDetail = () => {
           <h1 className="text-5xl md:text-6xl font-orbitron font-black text-white mb-4 text-glow">
             {product.name}
           </h1>
-          <p className="text-2xl text-industrial font-exo">{product.subtitle}</p>
+          <p className="text-2xl text-industrial font-exo">{translatedProduct.subtitle}</p>
         </motion.div>
       </section>
 
@@ -66,7 +88,7 @@ const ProductDetail = () => {
             className="inline-flex items-center text-industrial hover:text-industrial/80 font-exo transition-colors"
           >
             <ArrowLeft className="mr-2" size={20} />
-            Back to Products
+            {t('productDetail.backToProducts')}
           </Link>
         </div>
 
@@ -83,7 +105,7 @@ const ProductDetail = () => {
                     : 'text-gray-400 hover:text-industrial'
                 }`}
               >
-                {tab}
+                {t(`productDetail.${tab}`)}
               </button>
             ))}
           </div>
@@ -100,17 +122,17 @@ const ProductDetail = () => {
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h2 className="text-3xl font-orbitron font-bold text-white mb-4">
-                  Overview
+                  {t('productDetail.overview')}
                 </h2>
                 <p className="text-gray-300 font-exo text-lg mb-6">
-                  {product.description}
+                  {translatedProduct.description}
                 </p>
 
                 <h3 className="text-xl font-orbitron font-bold text-industrial mb-4">
-                  Key Features
+                  {t('productDetail.keyFeatures')}
                 </h3>
                 <ul className="space-y-3">
-                  {product.features.map((feature, index) => (
+                  {translatedProduct.features.map((feature, index) => (
                     <li key={index} className="flex items-start">
                       <CheckCircle className="text-industrial mr-3 flex-shrink-0 mt-1" size={20} />
                       <span className="text-gray-300 font-exo">{feature}</span>
@@ -127,7 +149,7 @@ const ProductDetail = () => {
                   <div className="px-4 py-3 bg-anthracite border border-industrial/30 rounded">
                     <div className="text-sm text-gray-400 font-exo">Category</div>
                     <div className="text-lg text-industrial font-orbitron font-bold">
-                      {product.category}
+                      {translatedProduct.category}
                     </div>
                   </div>
                 </div>
@@ -138,7 +160,7 @@ const ProductDetail = () => {
           {activeTab === 'specifications' && (
             <div>
               <h2 className="text-3xl font-orbitron font-bold text-white mb-6">
-                Technical Specifications
+                {t('productDetail.technicalSpecs')}
               </h2>
               <div className="bg-gradient-to-br from-gunmetal to-anthracite border border-industrial/20 rounded-lg overflow-hidden">
                 <div className="bg-gradient-to-r from-industrial to-industrial/80 px-6 py-4">
@@ -165,13 +187,13 @@ const ProductDetail = () => {
           {activeTab === 'applications' && (
             <div>
               <h2 className="text-3xl font-orbitron font-bold text-white mb-6">
-                Applications
+                {t('productDetail.applications')}
               </h2>
               <p className="text-gray-300 font-exo text-lg mb-8">
                 The {product.name} is designed for versatile deployment across multiple sectors:
               </p>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {product.applications.map((app, index) => (
+                {translatedProduct.applications.map((app, index) => (
                   <div
                     key={index}
                     className="bg-gradient-to-br from-gunmetal to-anthracite border border-industrial/20 hover:border-industrial/50 p-6 rounded-lg transition-all"
@@ -198,11 +220,11 @@ const ProductDetail = () => {
                 : 'bg-transparent border-2 border-industrial text-industrial hover:bg-industrial/10'
             }`}
           >
-            {isInComparison ? 'Added to Comparison' : 'Add to Comparison'}
+            {isInComparison ? t('productDetail.inComparison') : t('productDetail.addToCompare')}
           </button>
           <button className="flex-1 px-8 py-4 bg-industrial hover:bg-industrial/90 text-anthracite font-exo font-bold uppercase tracking-wider transition-all rounded-sm box-glow flex items-center justify-center">
             <Download className="mr-2" size={20} />
-            Download Brochure
+            {t('productDetail.downloadBrochure')}
           </button>
         </div>
       </div>

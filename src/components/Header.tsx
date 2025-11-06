@@ -1,18 +1,25 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+    localStorage.setItem('language', lng);
+  };
 
   const navLinks = [
-    { path: '/', label: 'Home' },
-    { path: '/products', label: 'Products' },
-    { path: '/compare', label: 'Compare' },
-    { path: '/gallery', label: 'Gallery' },
-    { path: '/about', label: 'About' },
-    { path: '/contact', label: 'Contact' },
+    { path: '/', label: t('nav.home') },
+    { path: '/products', label: t('nav.products') },
+    { path: '/compare', label: t('nav.compare') },
+    { path: '/gallery', label: t('nav.gallery') },
+    { path: '/about', label: t('nav.about') },
+    { path: '/contact', label: t('nav.contact') },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -53,10 +60,24 @@ const Header = () => {
 
           {/* Language Toggle */}
           <div className="hidden md:flex items-center space-x-2">
-            <button className="px-3 py-1 text-sm font-exo bg-industrial/20 text-industrial rounded">
+            <button 
+              onClick={() => changeLanguage('en')}
+              className={`px-3 py-1 text-sm font-exo transition-colors rounded ${
+                i18n.language === 'en' 
+                  ? 'bg-industrial/20 text-industrial' 
+                  : 'text-gray-400 hover:text-industrial'
+              }`}
+            >
               EN
             </button>
-            <button className="px-3 py-1 text-sm font-exo text-gray-400 hover:text-industrial transition-colors rounded">
+            <button 
+              onClick={() => changeLanguage('tr')}
+              className={`px-3 py-1 text-sm font-exo transition-colors rounded ${
+                i18n.language === 'tr' 
+                  ? 'bg-industrial/20 text-industrial' 
+                  : 'text-gray-400 hover:text-industrial'
+              }`}
+            >
               TR
             </button>
           </div>
@@ -88,10 +109,24 @@ const Header = () => {
               </Link>
             ))}
             <div className="flex space-x-2 pt-2">
-              <button className="px-3 py-1 text-sm font-exo bg-industrial/20 text-industrial rounded">
+              <button 
+                onClick={() => changeLanguage('en')}
+                className={`px-3 py-1 text-sm font-exo rounded ${
+                  i18n.language === 'en' 
+                    ? 'bg-industrial/20 text-industrial' 
+                    : 'text-gray-400'
+                }`}
+              >
                 EN
               </button>
-              <button className="px-3 py-1 text-sm font-exo text-gray-400 rounded">
+              <button 
+                onClick={() => changeLanguage('tr')}
+                className={`px-3 py-1 text-sm font-exo rounded ${
+                  i18n.language === 'tr' 
+                    ? 'bg-industrial/20 text-industrial' 
+                    : 'text-gray-400'
+                }`}
+              >
                 TR
               </button>
             </div>

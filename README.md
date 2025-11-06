@@ -24,6 +24,9 @@ Official product catalog website for COVISART Advanced Technologies, showcasing 
 - Tailwind CSS 3.4.15
 - Zustand 5.0.2
 - Lucide React (Icons)
+- **i18next 23.16.8** - Internationalization framework
+- **react-i18next 15.1.3** - React bindings for i18next
+- **i18next-browser-languagedetector 8.0.2** - Language detection plugin
 
 ## 🏢 Brand Identity
 
@@ -154,9 +157,51 @@ The website showcases compliance with:
 
 ## 🌐 Internationalization
 
-- Language toggle (EN/TR) in header and footer
-- Structure ready for i18n implementation
-- English content currently implemented
+The website supports multiple languages with **react-i18next**:
+
+- **Default language**: English (EN)
+- **Available languages**: English (EN), Turkish (TR)
+- Language switcher in header (desktop and mobile)
+- Language preference persists via `localStorage`
+- All UI text is fully translated (navigation, pages, forms, buttons)
+- SEO meta tags support both languages
+
+### Translation Files
+
+Translation files are located in `/public/locales/{language}/translation.json`:
+- `/public/locales/en/translation.json` - English translations
+- `/public/locales/tr/translation.json` - Turkish translations
+
+### Adding a New Language
+
+1. Create a new folder in `/public/locales/{language-code}/`
+2. Add `translation.json` file with translated content
+3. Import the translation in `/src/i18n.ts`:
+   ```typescript
+   import newLangTranslation from '../public/locales/{language-code}/translation.json';
+   ```
+4. Add the language to the resources object in `/src/i18n.ts`:
+   ```typescript
+   resources: {
+     en: { translation: enTranslation },
+     tr: { translation: trTranslation },
+     {language-code}: { translation: newLangTranslation },
+   }
+   ```
+5. Add language toggle button in `/src/components/Header.tsx`
+
+### Translation Keys Structure
+
+- `nav.*` - Navigation menu items
+- `home.*` - Home page content
+- `products.*` - Products page content
+- `productDetail.*` - Product detail page content
+- `compare.*` - Comparison page content
+- `gallery.*` - Gallery page content
+- `about.*` - About page content
+- `contact.*` - Contact page content
+- `footer.*` - Footer content
+- `seo.*` - SEO meta tags for all pages
 
 ## 📱 Responsive Design
 
