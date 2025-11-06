@@ -14,22 +14,22 @@
 
 @layer utilities {
   .text-glow {
-    text-shadow: 0 0 10px rgba(244, 176, 0, 0.5), 0 0 20px rgba(244, 176, 0, 0.3);
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5), 0 0 20px rgba(255, 0, 0, 0.3);
   }
   
   .box-glow {
-    box-shadow: 0 0 20px rgba(244, 176, 0, 0.2), 0 0 40px rgba(244, 176, 0, 0.1);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.2), 0 0 40px rgba(255, 0, 0, 0.1);
   }
   
   .border-glow {
     border-color: #f4b000;
-    box-shadow: 0 0 10px rgba(244, 176, 0, 0.3), inset 0 0 10px rgba(244, 176, 0, 0.1);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.3), inset 0 0 10px rgba(255, 0, 0, 0.1);
   }
 
   .bg-grid {
     background-image: 
-      linear-gradient(rgba(244, 176, 0, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(244, 176, 0, 0.03) 1px, transparent 1px);
+      linear-gradient(rgba(255, 0, 0, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 0, 0, 0.03) 1px, transparent 1px);
     background-size: 50px 50px;
   }
 }
