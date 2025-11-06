@@ -10,7 +10,7 @@ export default {
       colors: {
         anthracite: '#1b1b1b',
         gunmetal: '#2b2b2b',
-        industrial: '#f4b000',
+        industrial: '#f42900',
       },
       fontFamily: {
         orbitron: ['Orbitron', 'sans-serif'],
