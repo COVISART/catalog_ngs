@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Home = () => {
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -27,7 +29,7 @@ const Home = () => {
             className="mb-6"
           >
             <span className="inline-block px-6 py-2 bg-industrial/10 border border-industrial/30 rounded-full text-industrial text-sm font-exo font-semibold uppercase tracking-wider">
-              Next Generation Technology
+              {t('home.badge')}
             </span>
           </motion.div>
 
@@ -37,9 +39,9 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-5xl md:text-7xl lg:text-8xl font-orbitron font-black text-white mb-6 text-glow"
           >
-            Next Generation Simulators.
+            {t('home.title')}
             <br />
-            <span className="text-industrial">Built for Reality.</span>
+            <span className="text-industrial">{t('home.titleHighlight')}</span>
           </motion.h1>
 
           <motion.p
@@ -48,9 +50,9 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-xl md:text-2xl text-gray-300 mb-12 font-exo"
           >
-            Advanced motion simulation platforms for defense, aerospace, and research.
+            {t('home.subtitle')}
             <br />
-            Experience unparalleled realism and precision.
+            {t('home.subtitleLine2')}
           </motion.p>
 
           <motion.div
@@ -63,14 +65,14 @@ const Home = () => {
               to="/products"
               className="group px-8 py-4 bg-industrial hover:bg-industrial/90 text-anthracite font-exo font-bold uppercase tracking-wider transition-all transform hover:scale-105 rounded-sm box-glow flex items-center justify-center"
             >
-              Explore Products
+              {t('home.exploreProducts')}
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
             </Link>
             <Link
               to="/compare"
               className="px-8 py-4 bg-transparent border-2 border-industrial hover:bg-industrial/10 text-industrial font-exo font-bold uppercase tracking-wider transition-all rounded-sm"
             >
-              Compare Models
+              {t('home.compareModels')}
             </Link>
           </motion.div>
         </motion.div>

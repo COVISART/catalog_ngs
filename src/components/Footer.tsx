@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 import { Linkedin, Youtube, Mail } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+  const { t } = useTranslation();
   return (
     <footer className="bg-black border-t border-industrial/20 py-12 px-6">
       <div className="container mx-auto max-w-6xl">
@@ -17,8 +19,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-gray-400 font-exo text-sm mb-4">
-              COVISART Advanced Technologies is a leading provider of next-generation simulation 
-              systems for defense, aerospace, and industrial applications. Winner of IFIA Gold Medal.
+              {t('footer.companyDescription')}
             </p>
             <div className="flex space-x-4">
               <a
@@ -48,7 +49,7 @@ const Footer = () => {
           
           {/* Products */}
           <div>
-            <h4 className="text-industrial font-orbitron font-bold mb-4">Products</h4>
+            <h4 className="text-industrial font-orbitron font-bold mb-4">{t('footer.productsTitle')}</h4>
             <ul className="space-y-2 text-gray-400 font-exo text-sm">
               <li>
                 <Link to="/products/ngs-360-3" className="hover:text-industrial transition-colors">
@@ -67,7 +68,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link to="/compare" className="hover:text-industrial transition-colors">
-                  Compare Models
+                  {t('nav.compare')}
                 </Link>
               </li>
             </ul>
@@ -75,21 +76,21 @@ const Footer = () => {
           
           {/* Company */}
           <div>
-            <h4 className="text-industrial font-orbitron font-bold mb-4">Company</h4>
+            <h4 className="text-industrial font-orbitron font-bold mb-4">{t('footer.companyTitle')}</h4>
             <ul className="space-y-2 text-gray-400 font-exo text-sm">
               <li>
                 <Link to="/about" className="hover:text-industrial transition-colors">
-                  About Us
+                  {t('footer.aboutUs')}
                 </Link>
               </li>
               <li>
                 <Link to="/gallery" className="hover:text-industrial transition-colors">
-                  Gallery
+                  {t('nav.gallery')}
                 </Link>
               </li>
               <li>
                 <Link to="/contact" className="hover:text-industrial transition-colors">
-                  Contact
+                  {t('nav.contact')}
                 </Link>
               </li>
             </ul>
@@ -117,7 +118,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="border-t border-industrial/20 pt-6 text-center">
           <p className="text-gray-500 font-exo text-sm">
-            © 2024 COVISART Advanced Technologies. All rights reserved.
+            {t('footer.copyright')}
           </p>
         </div>
       </div>

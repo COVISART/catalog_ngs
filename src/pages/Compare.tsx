@@ -4,11 +4,13 @@ import { Link } from 'react-router-dom';
 import { Download, X, ArrowRight } from 'lucide-react';
 import productsData from '@/data/products.json';
 import { useComparisonStore } from '@/store/comparison';
+import { useTranslation } from 'react-i18next';
 
 const Compare = () => {
   const { product1, product2, setProduct1, setProduct2, reset } = useComparisonStore();
   const [selectedProduct1, setSelectedProduct1] = useState(product1 || '');
   const [selectedProduct2, setSelectedProduct2] = useState(product2 || '');
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (selectedProduct1) setProduct1(selectedProduct1);
@@ -33,10 +35,10 @@ const Compare = () => {
           className="text-center mb-12"
         >
           <h1 className="text-5xl md:text-6xl font-orbitron font-bold text-white mb-4">
-            Compare Simulators
+            {t('compare.title')}
           </h1>
           <p className="text-xl text-gray-400 font-exo">
-            Select two models to compare their specifications side by side
+            {t('compare.subtitle')}
           </p>
         </motion.div>
 
@@ -50,14 +52,14 @@ const Compare = () => {
             className="bg-gradient-to-br from-gunmetal to-anthracite border border-industrial/20 rounded-lg p-6"
           >
             <label className="block text-industrial font-orbitron font-bold mb-3">
-              First Simulator
+              {t('compare.firstSimulator')}
             </label>
             <select
               value={selectedProduct1}
               onChange={(e) => setSelectedProduct1(e.target.value)}
               className="w-full px-4 py-3 bg-anthracite border border-industrial/30 text-white font-exo rounded focus:outline-none focus:border-industrial"
             >
-              <option value="">Select a simulator...</option>
+              <option value="">{t('compare.selectSimulator')}</option>
               {productsData
                 .filter((p) => p.id !== selectedProduct2)
                 .map((product) => (
@@ -72,7 +74,7 @@ const Compare = () => {
                 className="mt-3 text-sm text-gray-400 hover:text-industrial font-exo flex items-center"
               >
                 <X size={16} className="mr-1" />
-                Clear selection
+                {t('compare.clearSelection')}
               </button>
             )}
           </motion.div>
@@ -85,14 +87,14 @@ const Compare = () => {
             className="bg-gradient-to-br from-gunmetal to-anthracite border border-industrial/20 rounded-lg p-6"
           >
             <label className="block text-industrial font-orbitron font-bold mb-3">
-              Second Simulator
+              {t('compare.secondSimulator')}
             </label>
             <select
               value={selectedProduct2}
               onChange={(e) => setSelectedProduct2(e.target.value)}
               className="w-full px-4 py-3 bg-anthracite border border-industrial/30 text-white font-exo rounded focus:outline-none focus:border-industrial"
             >
-              <option value="">Select a simulator...</option>
+              <option value="">{t('compare.selectSimulator')}</option>
               {productsData
                 .filter((p) => p.id !== selectedProduct1)
                 .map((product) => (
@@ -107,7 +109,7 @@ const Compare = () => {
                 className="mt-3 text-sm text-gray-400 hover:text-industrial font-exo flex items-center"
               >
                 <X size={16} className="mr-1" />
-                Clear selection
+                {t('compare.clearSelection')}
               </button>
             )}
           </motion.div>
@@ -132,7 +134,7 @@ const Compare = () => {
                   to={`/products/${p1.id}`}
                   className="inline-flex items-center mt-4 text-sm text-industrial hover:underline font-exo"
                 >
-                  View Details
+                  {t('products.viewDetails')}
                   <ArrowRight size={14} className="ml-1" />
                 </Link>
               </div>
@@ -145,7 +147,7 @@ const Compare = () => {
                   to={`/products/${p2.id}`}
                   className="inline-flex items-center mt-4 text-sm text-industrial hover:underline font-exo"
                 >
-                  View Details
+                  {t('products.viewDetails')}
                   <ArrowRight size={14} className="ml-1" />
                 </Link>
               </div>
@@ -155,7 +157,7 @@ const Compare = () => {
             <div className="bg-gradient-to-br from-gunmetal to-anthracite border border-industrial/20 rounded-lg overflow-hidden">
               <div className="bg-gradient-to-r from-industrial to-industrial/80 px-6 py-4">
                 <h3 className="text-xl font-orbitron font-bold text-anthracite">
-                  Specifications Comparison
+                  {t('compare.specificationComparison')}
                 </h3>
               </div>
               <div className="divide-y divide-industrial/20">
@@ -179,14 +181,14 @@ const Compare = () => {
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <button className="px-8 py-4 bg-industrial hover:bg-industrial/90 text-anthracite font-exo font-bold uppercase tracking-wider transition-all rounded-sm box-glow flex items-center justify-center">
                 <Download className="mr-2" size={20} />
-                Export Comparison
+                {t('compare.exportComparison')}
               </button>
               <Link
                 to="/contact"
                 state={{ comparedProducts: [p1.name, p2.name] }}
                 className="px-8 py-4 bg-transparent border-2 border-industrial hover:bg-industrial/10 text-industrial font-exo font-bold uppercase tracking-wider transition-all rounded-sm text-center"
               >
-                Request Information
+                {t('compare.sendInquiry')}
               </Link>
               <button
                 onClick={() => {
@@ -196,7 +198,7 @@ const Compare = () => {
                 }}
                 className="px-8 py-4 bg-transparent border border-industrial/50 hover:bg-industrial/5 text-gray-400 hover:text-industrial font-exo font-semibold transition-all rounded-sm"
               >
-                Reset Comparison
+                {t('compare.resetComparison')}
               </button>
             </div>
           </motion.div>
@@ -216,10 +218,10 @@ const Compare = () => {
               </svg>
             </div>
             <h3 className="text-2xl font-orbitron font-bold text-gray-400 mb-2">
-              Select Two Simulators
+              {t('compare.selectBoth')}
             </h3>
             <p className="text-gray-500 font-exo">
-              Choose two models from the dropdowns above to see a detailed comparison
+              {t('compare.subtitle')}
             </p>
           </motion.div>
         )}

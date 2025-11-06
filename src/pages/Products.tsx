@@ -3,9 +3,11 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Layers } from 'lucide-react';
 import productsData from '@/data/products.json';
 import { useComparisonStore } from '@/store/comparison';
+import { useTranslation } from 'react-i18next';
 
 const Products = () => {
   const { product1, product2, setProduct1, setProduct2 } = useComparisonStore();
+  const { t } = useTranslation();
 
   const handleAddToCompare = (productId: string) => {
     if (!product1) {
@@ -30,11 +32,10 @@ const Products = () => {
           className="text-center mb-16"
         >
           <h1 className="text-5xl md:text-6xl font-orbitron font-bold text-white mb-4">
-            Simulator Family
+            {t('products.title')}
           </h1>
           <p className="text-xl text-gray-400 font-exo max-w-3xl mx-auto">
-            Explore our complete range of next-generation simulation platforms, 
-            from premium 360° systems to compact training solutions.
+            {t('products.subtitle')}
           </p>
         </motion.div>
 
@@ -74,7 +75,7 @@ const Products = () => {
                     to={`/products/${product.id}`}
                     className="group flex items-center justify-between w-full px-4 py-3 bg-industrial hover:bg-industrial/90 text-anthracite font-exo font-semibold transition-all rounded"
                   >
-                    View Details
+                    {t('products.viewDetails')}
                     <ArrowRight className="group-hover:translate-x-1 transition-transform" size={18} />
                   </Link>
 
@@ -87,7 +88,7 @@ const Products = () => {
                         : 'bg-transparent border border-industrial/50 text-industrial hover:bg-industrial/10'
                     }`}
                   >
-                    {isInComparison(product.id) ? 'In Comparison' : 'Add to Compare'}
+                    {isInComparison(product.id) ? t('products.inComparison') : t('products.addToCompare')}
                   </button>
                 </div>
               </div>
@@ -105,12 +106,12 @@ const Products = () => {
             <div className="flex flex-col md:flex-row items-center justify-between">
               <div>
                 <h3 className="text-xl font-orbitron font-bold text-industrial mb-1">
-                  {product1 && product2 ? 'Ready to Compare' : 'Add Another Product'}
+                  {product1 && product2 ? t('products.readyToCompare') : t('products.addAnother')}
                 </h3>
                 <p className="text-gray-400 font-exo text-sm">
                   {product1 && product2
-                    ? 'Compare selected simulators side by side'
-                    : 'Select one more product to start comparison'}
+                    ? t('products.compareSelected')
+                    : t('products.selectMore')}
                 </p>
               </div>
               {product1 && product2 && (
@@ -118,7 +119,7 @@ const Products = () => {
                   to="/compare"
                   className="mt-4 md:mt-0 px-6 py-3 bg-industrial hover:bg-industrial/90 text-anthracite font-exo font-bold uppercase tracking-wider transition-all rounded-sm"
                 >
-                  Go to Comparison
+                  {t('products.goToComparison')}
                 </Link>
               )}
             </div>

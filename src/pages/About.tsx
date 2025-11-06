@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
 import { Award, Users, Globe, Shield } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const About = () => {
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen pt-24 pb-20">
       {/* Hero Section */}
@@ -16,10 +18,10 @@ const About = () => {
           className="relative z-10 text-center px-6"
         >
           <h1 className="text-5xl md:text-6xl font-orbitron font-bold text-white mb-4">
-            About COVISART
+            {t('about.title')}
           </h1>
           <p className="text-2xl text-industrial font-exo">
-            Advanced Technologies
+            {t('about.subtitle')}
           </p>
         </motion.div>
       </section>
@@ -35,13 +37,10 @@ const About = () => {
         >
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-orbitron font-bold text-white mb-6">
-              Our Mission
+              {t('about.missionTitle')}
             </h2>
             <p className="text-xl text-gray-300 font-exo leading-relaxed">
-              COVISART Advanced Technologies is dedicated to delivering cutting-edge simulation 
-              platforms that redefine training standards in defense, aerospace, and industrial sectors. 
-              Our commitment to innovation, precision, and reliability drives us to create next-generation 
-              solutions that prepare professionals for real-world challenges.
+              {t('about.missionText')}
             </p>
           </div>
         </motion.section>
@@ -52,23 +51,23 @@ const About = () => {
             {[
               {
                 icon: Award,
-                title: 'IFIA Gold Medal',
-                description: 'International recognition for innovation and excellence in simulation technology',
+                title: t('about.ifiaGoldMedal'),
+                description: t('about.ifiaDescription'),
               },
               {
                 icon: Globe,
-                title: 'IDEF 2025',
-                description: 'Showcasing next-generation simulators at international defense exhibitions',
+                title: t('about.idef2025'),
+                description: t('about.idefDescription'),
               },
               {
                 icon: Shield,
-                title: 'Defense Grade',
-                description: 'Military-certified components meeting highest standards of reliability',
+                title: t('about.defenseGrade'),
+                description: t('about.defenseDescription'),
               },
               {
                 icon: Users,
-                title: 'Expert Team',
-                description: 'Dedicated engineers and specialists in motion control and simulation',
+                title: t('about.expertTeam'),
+                description: t('about.expertDescription'),
               },
             ].map((item, index) => (
               <motion.div
@@ -100,7 +99,7 @@ const About = () => {
           className="py-20"
         >
           <h2 className="text-4xl font-orbitron font-bold text-white mb-12 text-center">
-            Compliance & Standards
+            {t('about.complianceTitle')}
           </h2>
           <div className="bg-gradient-to-br from-gunmetal to-anthracite border-2 border-industrial/30 rounded-lg p-8">
             <div className="grid md:grid-cols-3 gap-6">
@@ -109,10 +108,10 @@ const About = () => {
                   <Shield className="text-industrial" size={32} />
                 </div>
                 <h3 className="text-xl font-orbitron font-bold text-industrial mb-2">
-                  MIL-STD-2525D
+                  {t('about.milStdTitle')}
                 </h3>
                 <p className="text-gray-400 font-exo text-sm">
-                  Common Warfighting Symbology standard for military operations
+                  {t('about.milStdDescription')}
                 </p>
               </div>
 
@@ -121,10 +120,10 @@ const About = () => {
                   <Shield className="text-industrial" size={32} />
                 </div>
                 <h3 className="text-xl font-orbitron font-bold text-industrial mb-2">
-                  APP-6D
+                  {t('about.app6dTitle')}
                 </h3>
                 <p className="text-gray-400 font-exo text-sm">
-                  NATO Joint Military Symbology for operational compatibility
+                  {t('about.app6dDescription')}
                 </p>
               </div>
 
@@ -133,10 +132,10 @@ const About = () => {
                   <Shield className="text-industrial" size={32} />
                 </div>
                 <h3 className="text-xl font-orbitron font-bold text-industrial mb-2">
-                  ISO 9001
+                  {t('about.iso9001Title')}
                 </h3>
                 <p className="text-gray-400 font-exo text-sm">
-                  Quality management system certification for consistent excellence
+                  {t('about.iso9001Description')}
                 </p>
               </div>
             </div>
@@ -152,24 +151,23 @@ const About = () => {
           className="py-20 text-center"
         >
           <h2 className="text-4xl font-orbitron font-bold text-white mb-6">
-            Technology Partners
+            {t('about.partnersTitle')}
           </h2>
           <p className="text-xl text-gray-400 font-exo mb-12 max-w-3xl mx-auto">
-            We collaborate with industry-leading technology providers to deliver 
-            state-of-the-art simulation solutions.
+            {t('about.partnersSubtitle')}
           </p>
           <div className="flex flex-wrap justify-center gap-8">
             <div className="px-8 py-6 bg-gunmetal border border-industrial/30 rounded-lg">
-              <div className="text-2xl font-orbitron font-bold text-industrial">Beckhoff</div>
-              <div className="text-sm text-gray-400 font-exo">Industrial Automation</div>
+              <div className="text-2xl font-orbitron font-bold text-industrial">{t('about.beckhoff')}</div>
+              <div className="text-sm text-gray-400 font-exo">{t('about.beckhoffDescription')}</div>
             </div>
             <div className="px-8 py-6 bg-gunmetal border border-industrial/30 rounded-lg">
-              <div className="text-2xl font-orbitron font-bold text-industrial">NVIDIA</div>
-              <div className="text-sm text-gray-400 font-exo">Graphics Processing</div>
+              <div className="text-2xl font-orbitron font-bold text-industrial">{t('about.nvidia')}</div>
+              <div className="text-sm text-gray-400 font-exo">{t('about.nvidiaDescription')}</div>
             </div>
             <div className="px-8 py-6 bg-gunmetal border border-industrial/30 rounded-lg">
-              <div className="text-2xl font-orbitron font-bold text-industrial">Linux</div>
-              <div className="text-sm text-gray-400 font-exo">Real-Time OS</div>
+              <div className="text-2xl font-orbitron font-bold text-industrial">{t('about.linux')}</div>
+              <div className="text-sm text-gray-400 font-exo">{t('about.linuxDescription')}</div>
             </div>
           </div>
         </motion.section>

@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Layers } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Gallery = () => {
   const [activeFilter, setActiveFilter] = useState('all');
+  const { t } = useTranslation();
 
   const categories = [
     'all',
@@ -44,10 +46,10 @@ const Gallery = () => {
           className="text-center mb-12"
         >
           <h1 className="text-5xl md:text-6xl font-orbitron font-bold text-white mb-4">
-            Gallery
+            {t('gallery.title')}
           </h1>
           <p className="text-xl text-gray-400 font-exo max-w-3xl mx-auto">
-            Explore our simulation systems, installations, and technical components
+            {t('gallery.subtitle')}
           </p>
         </motion.div>
 
@@ -63,7 +65,12 @@ const Gallery = () => {
                   : 'bg-gunmetal border border-industrial/30 text-gray-400 hover:text-industrial hover:border-industrial/50'
               }`}
             >
-              {category.charAt(0).toUpperCase() + category.slice(1)}
+              {category === 'all' ? t('gallery.all') : 
+               category === 'Motion Platforms' ? t('gallery.motionPlatforms') :
+               category === 'Cockpits' ? t('gallery.cockpits') :
+               category === 'Control Systems' ? t('gallery.controlSystems') :
+               category === 'Displays' ? t('gallery.displays') :
+               category === 'Integration' ? t('gallery.integration') : category}
             </button>
           ))}
         </div>
@@ -87,7 +94,7 @@ const Gallery = () => {
               <div className="aspect-[4/3] bg-gradient-to-br from-industrial/20 to-transparent flex items-center justify-center relative overflow-hidden">
                 <Layers className="text-industrial opacity-20 group-hover:opacity-30 transition-opacity" size={60} />
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <span className="text-white font-exo font-semibold">View Image</span>
+                  <span className="text-white font-exo font-semibold">{t('gallery.viewImage')}</span>
                 </div>
               </div>
 
@@ -110,8 +117,7 @@ const Gallery = () => {
           className="mt-12 text-center p-6 bg-gunmetal border border-industrial/20 rounded-lg"
         >
           <p className="text-gray-400 font-exo text-sm">
-            <span className="text-industrial font-semibold">Note:</span> Images shown are placeholders. 
-            Replace with actual product images from covisart.com.tr maintaining 4:3 aspect ratio (1024×768px).
+            <span className="text-industrial font-semibold">Note:</span> {t('gallery.placeholderNote')}
           </p>
         </motion.div>
       </div>

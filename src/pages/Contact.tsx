@@ -2,17 +2,19 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Contact = () => {
   const location = useLocation();
   const comparedProducts = (location.state as { comparedProducts?: string[] })?.comparedProducts || [];
+  const { t } = useTranslation();
 
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     company: '',
     message: comparedProducts.length > 0
-      ? `I am interested in ${comparedProducts.join(' and ')}.`
+      ? `${t('contact.interestedIn')} ${comparedProducts.join(' and ')}.`
       : '',
   });
 
@@ -47,11 +49,10 @@ const Contact = () => {
           className="text-center mb-16"
         >
           <h1 className="text-5xl md:text-6xl font-orbitron font-bold text-white mb-4">
-            Get in Touch
+            {t('contact.title')}
           </h1>
           <p className="text-xl text-gray-400 font-exo max-w-3xl mx-auto">
-            Ready to revolutionize your training capabilities? Contact our team for a demonstration 
-            or to discuss your specific requirements.
+            {t('contact.subtitle')}
           </p>
         </motion.div>
 
@@ -63,7 +64,7 @@ const Contact = () => {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl font-orbitron font-bold text-industrial mb-8">
-              Contact Information
+              {t('contact.contactInfo')}
             </h2>
 
             <div className="space-y-6">
@@ -72,7 +73,7 @@ const Contact = () => {
                   <Mail className="text-industrial" size={24} />
                 </div>
                 <div>
-                  <h3 className="text-lg font-orbitron font-bold text-white mb-1">Email</h3>
+                  <h3 className="text-lg font-orbitron font-bold text-white mb-1">{t('contact.email')}</h3>
                   <a
                     href="mailto:info@covisart.com.tr"
                     className="text-gray-400 hover:text-industrial font-exo transition-colors"
@@ -87,7 +88,7 @@ const Contact = () => {
                   <Phone className="text-industrial" size={24} />
                 </div>
                 <div>
-                  <h3 className="text-lg font-orbitron font-bold text-white mb-1">Phone</h3>
+                  <h3 className="text-lg font-orbitron font-bold text-white mb-1">{t('contact.phone')}</h3>
                   <a
                     href="tel:+905551234567"
                     className="text-gray-400 hover:text-industrial font-exo transition-colors"
@@ -102,11 +103,11 @@ const Contact = () => {
                   <MapPin className="text-industrial" size={24} />
                 </div>
                 <div>
-                  <h3 className="text-lg font-orbitron font-bold text-white mb-1">Location</h3>
+                  <h3 className="text-lg font-orbitron font-bold text-white mb-1">{t('contact.location')}</h3>
                   <p className="text-gray-400 font-exo">
-                    Global Operations
+                    {t('contact.locationValue')}
                     <br />
-                    Türkiye
+                    {t('contact.locationCountry')}
                   </p>
                 </div>
               </div>
@@ -115,20 +116,20 @@ const Contact = () => {
             {/* Additional Info */}
             <div className="mt-12 p-6 bg-gradient-to-br from-gunmetal to-anthracite border border-industrial/20 rounded-lg">
               <h3 className="text-xl font-orbitron font-bold text-industrial mb-4">
-                Business Hours
+                {t('contact.businessHours')}
               </h3>
               <div className="space-y-2 font-exo text-gray-300">
                 <div className="flex justify-between">
-                  <span>Monday - Friday</span>
-                  <span className="text-industrial">09:00 - 18:00</span>
+                  <span>{t('contact.monday')}</span>
+                  <span className="text-industrial">{t('contact.mondayHours')}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Saturday</span>
-                  <span className="text-industrial">10:00 - 16:00</span>
+                  <span>{t('contact.saturday')}</span>
+                  <span className="text-industrial">{t('contact.saturdayHours')}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Sunday</span>
-                  <span className="text-gray-500">Closed</span>
+                  <span>{t('contact.sunday')}</span>
+                  <span className="text-gray-500">{t('contact.sundayHours')}</span>
                 </div>
               </div>
             </div>
@@ -142,13 +143,13 @@ const Contact = () => {
           >
             <div className="bg-gradient-to-br from-gunmetal to-anthracite border border-industrial/20 rounded-lg p-8">
               <h2 className="text-3xl font-orbitron font-bold text-industrial mb-6">
-                Send us a Message
+                {t('contact.sendMessage')}
               </h2>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-exo font-semibold text-gray-400 mb-2">
-                    Name *
+                    {t('contact.name')} {t('contact.required')}
                   </label>
                   <input
                     type="text"
@@ -158,13 +159,13 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 bg-anthracite border border-industrial/30 text-white font-exo rounded focus:outline-none focus:border-industrial transition-colors"
-                    placeholder="Your name"
+                    placeholder={t('contact.namePlaceholder')}
                   />
                 </div>
 
                 <div>
                   <label htmlFor="email" className="block text-sm font-exo font-semibold text-gray-400 mb-2">
-                    Email *
+                    {t('contact.emailLabel')} {t('contact.required')}
                   </label>
                   <input
                     type="email"
@@ -174,13 +175,13 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 bg-anthracite border border-industrial/30 text-white font-exo rounded focus:outline-none focus:border-industrial transition-colors"
-                    placeholder="your@email.com"
+                    placeholder={t('contact.emailPlaceholder')}
                   />
                 </div>
 
                 <div>
                   <label htmlFor="company" className="block text-sm font-exo font-semibold text-gray-400 mb-2">
-                    Company
+                    {t('contact.company')}
                   </label>
                   <input
                     type="text"
@@ -189,13 +190,13 @@ const Contact = () => {
                     value={formData.company}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-anthracite border border-industrial/30 text-white font-exo rounded focus:outline-none focus:border-industrial transition-colors"
-                    placeholder="Your company name"
+                    placeholder={t('contact.companyPlaceholder')}
                   />
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-exo font-semibold text-gray-400 mb-2">
-                    Message *
+                    {t('contact.message')} {t('contact.required')}
                   </label>
                   <textarea
                     id="message"
@@ -205,7 +206,7 @@ const Contact = () => {
                     required
                     rows={6}
                     className="w-full px-4 py-3 bg-anthracite border border-industrial/30 text-white font-exo rounded focus:outline-none focus:border-industrial transition-colors resize-none"
-                    placeholder="Tell us about your requirements..."
+                    placeholder={t('contact.messagePlaceholder')}
                   />
                 </div>
 
@@ -223,12 +224,12 @@ const Contact = () => {
                       <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                      Message Sent!
+                      {t('contact.messageSent')}
                     </>
                   ) : (
                     <>
                       <Send className="mr-2" size={20} />
-                      Send Message
+                      {t('contact.send')}
                     </>
                   )}
                 </button>
@@ -236,7 +237,7 @@ const Contact = () => {
 
               {comparedProducts.length > 0 && (
                 <div className="mt-4 p-4 bg-industrial/10 border border-industrial/30 rounded text-sm font-exo text-gray-400">
-                  <span className="text-industrial font-semibold">Note:</span> Your inquiry includes products: {comparedProducts.join(', ')}
+                  <span className="text-industrial font-semibold">Note:</span> {t('contact.inquiryNote')} {comparedProducts.join(', ')}
                 </div>
               )}
             </div>
