@@ -14,7 +14,27 @@ const ProductDetail = () => {
 
   const product = productsData.find((p) => p.id === id);
 
-  if (!product) {
+  // Get translated product data
+  const getTranslatedProduct = () => {
+    if (!product) return null;
+    const translationKey = `productData.${product.id}`;
+    return {
+      ...product,
+      subtitle: t(`${translationKey}.subtitle`, { defaultValue: product.subtitle }),
+      description: t(`${translationKey}.description`, { defaultValue: product.description }),
+      category: t(`${translationKey}.category`, { defaultValue: product.category }),
+      features: product.features.map((_, index) => 
+        t(`${translationKey}.features.${index}`, { defaultValue: product.features[index] })
+      ),
+      applications: product.applications.map((_, index) =>
+        t(`${translationKey}.applications.${index}`, { defaultValue: product.applications[index] })
+      ),
+    };
+  };
+
+  const translatedProduct = getTranslatedProduct();
+
+  if (!product || !translatedProduct) {
     return (
       <div className="min-h-screen pt-24 pb-20 px-6 flex items-center justify-center">
         <div className="text-center">
@@ -56,7 +76,7 @@ const ProductDetail = () => {
           <h1 className="text-5xl md:text-6xl font-orbitron font-black text-white mb-4 text-glow">
             {product.name}
           </h1>
-          <p className="text-2xl text-industrial font-exo">{product.subtitle}</p>
+          <p className="text-2xl text-industrial font-exo">{translatedProduct.subtitle}</p>
         </motion.div>
       </section>
 
@@ -105,14 +125,14 @@ const ProductDetail = () => {
                   {t('productDetail.overview')}
                 </h2>
                 <p className="text-gray-300 font-exo text-lg mb-6">
-                  {product.description}
+                  {translatedProduct.description}
                 </p>
 
                 <h3 className="text-xl font-orbitron font-bold text-industrial mb-4">
                   {t('productDetail.keyFeatures')}
                 </h3>
                 <ul className="space-y-3">
-                  {product.features.map((feature, index) => (
+                  {translatedProduct.features.map((feature, index) => (
                     <li key={index} className="flex items-start">
                       <CheckCircle className="text-industrial mr-3 flex-shrink-0 mt-1" size={20} />
                       <span className="text-gray-300 font-exo">{feature}</span>
@@ -129,7 +149,7 @@ const ProductDetail = () => {
                   <div className="px-4 py-3 bg-anthracite border border-industrial/30 rounded">
                     <div className="text-sm text-gray-400 font-exo">Category</div>
                     <div className="text-lg text-industrial font-orbitron font-bold">
-                      {product.category}
+                      {translatedProduct.category}
                     </div>
                   </div>
                 </div>
@@ -173,7 +193,7 @@ const ProductDetail = () => {
                 The {product.name} is designed for versatile deployment across multiple sectors:
               </p>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {product.applications.map((app, index) => (
+                {translatedProduct.applications.map((app, index) => (
                   <div
                     key={index}
                     className="bg-gradient-to-br from-gunmetal to-anthracite border border-industrial/20 hover:border-industrial/50 p-6 rounded-lg transition-all"

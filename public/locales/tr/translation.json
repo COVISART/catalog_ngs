@@ -149,5 +149,79 @@
     "aboutDescription": "COVISART İleri Teknolojiler, misyonumuz ve simülasyon teknolojisinde inovasyona olan bağlılığımız hakkında bilgi edinin.",
     "contactTitle": "Bize Ulaşın | COVISART",
     "contactDescription": "Ürün demonstrasyonları, sorularınız veya destek için COVISART ile iletişime geçin."
+  },
+  "productData": {
+    "ngs-360-3": {
+      "subtitle": "Yeni Nesil Simülatör",
+      "description": "Savunma ve endüstriyel eğitim için tasarlanmış devrim niteliğinde 360 derecelik simülasyon platformu. Hassas mühendislik, son teknoloji ile buluşuyor.",
+      "category": "Premium Simülatör",
+      "features": [
+        "Tam 360° panoramik kapsama",
+        "Askeri sınıf hassas bileşenler",
+        "Modüler ölçeklenebilir mimari",
+        "Yüksek sadakat grafik işleme",
+        "Gerçek zamanlı analiz panosu",
+        "Çoklu senaryo destek kütüphanesi",
+        "Sorunsuz donanım entegrasyonu",
+        "Ağ üzerinden işbirlikçi operasyonlar",
+        "Sağlamlaştırılmış endüstriyel tasarım"
+      ],
+      "applications": [
+        "Askeri Eğitim",
+        "Havacılık ve Uçuş Simülasyonu",
+        "Deniz Operasyonları",
+        "Kara Aracı Eğitimi",
+        "Acil Durum Müdahalesi",
+        "Endüstriyel Güvenlik",
+        "Tıbbi Eğitim",
+        "Araştırma ve Geliştirme"
+      ]
+    },
+    "ngs-5000": {
+      "subtitle": "Profesyonel Hareket Platformu",
+      "description": "Hassas servo kontrolü ve gerçek zamanlı kuvvet geri bildirimi ile gelişmiş 6-DOF hareket platformu. Yüksek sadakat araç ve uçak simülasyonu için tasarlanmıştır.",
+      "category": "Hareket Platformu",
+      "features": [
+        "6-DOF hareket kontrolü",
+        "Hassas servo aktüatörler",
+        "Gerçek zamanlı kuvvet geri bildirimi",
+        "Beckhoff endüstriyel kontrol",
+        "Gelişmiş hareket işaret algoritmaları",
+        "Yapılandırılabilir kokpit düzenleri",
+        "Acil durdurma sistemleri",
+        "Uzaktan izleme yetenekleri"
+      ],
+      "applications": [
+        "Uçuş Eğitimi",
+        "Araç Simülasyonu",
+        "Ağır Ekipman Eğitimi",
+        "Denizcilik Simülasyonu",
+        "Yarış Simülasyonu",
+        "Endüstriyel Ekipman Eğitimi"
+      ]
+    },
+    "ngs-mini-trainer": {
+      "subtitle": "Kompakt Eğitim Çözümü",
+      "description": "Temel eğitim ve beceri geliştirme için uygun maliyetli kompakt simülatör. Eğitim kurumları ve küçük ölçekli eğitim merkezleri için mükemmel.",
+      "category": "Giriş Seviyesi",
+      "features": [
+        "Kompakt ayak izi tasarımı",
+        "Üçlü ekran HD görüntü",
+        "Ayarlanabilir oturma pozisyonu",
+        "Standart çevre birimi desteği",
+        "Kolay kurulum ve dağıtım",
+        "Uygun maliyetli çözüm",
+        "Eğitim yazılım paketleri",
+        "Düşük bakım gereksinimleri"
+      ],
+      "applications": [
+        "Sürücü Eğitimi",
+        "Temel Uçuş Eğitimi",
+        "Ekipman Tanıma",
+        "Prosedür Eğitimi",
+        "Akademik Araştırma",
+        "Beceri Değerlendirmesi"
+      ]
+    }
   }
 }

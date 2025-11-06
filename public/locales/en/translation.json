@@ -149,5 +149,79 @@
     "aboutDescription": "Learn about COVISART Advanced Technologies, our mission, and commitment to innovation in simulation technology.",
     "contactTitle": "Contact Us | COVISART",
     "contactDescription": "Get in touch with COVISART for product demonstrations, inquiries, or support."
+  },
+  "productData": {
+    "ngs-360-3": {
+      "subtitle": "Next Generation Simulator",
+      "description": "Revolutionary 360-degree simulation platform designed for defense and industrial training. Precision engineering meets cutting-edge technology.",
+      "category": "Premium Simulator",
+      "features": [
+        "Complete 360° panoramic coverage",
+        "Military-grade precision components",
+        "Modular scalable architecture",
+        "High-fidelity graphics rendering",
+        "Real-time analytics dashboard",
+        "Multi-scenario support library",
+        "Seamless hardware integration",
+        "Networked collaborative operations",
+        "Ruggedized industrial design"
+      ],
+      "applications": [
+        "Military Training",
+        "Aviation & Flight Simulation",
+        "Naval Operations",
+        "Ground Vehicle Training",
+        "Emergency Response",
+        "Industrial Safety",
+        "Medical Training",
+        "Research & Development"
+      ]
+    },
+    "ngs-5000": {
+      "subtitle": "Professional Motion Platform",
+      "description": "Advanced 6-DOF motion platform with precision servo control and real-time force feedback. Designed for high-fidelity vehicle and aircraft simulation.",
+      "category": "Motion Platform",
+      "features": [
+        "6-DOF motion control",
+        "Precision servo actuators",
+        "Real-time force feedback",
+        "Beckhoff industrial control",
+        "Advanced motion cueing algorithms",
+        "Configurable cockpit layouts",
+        "Emergency stop systems",
+        "Remote monitoring capabilities"
+      ],
+      "applications": [
+        "Flight Training",
+        "Vehicle Simulation",
+        "Heavy Equipment Training",
+        "Maritime Simulation",
+        "Racing Simulation",
+        "Industrial Equipment Training"
+      ]
+    },
+    "ngs-mini-trainer": {
+      "subtitle": "Compact Training Solution",
+      "description": "Cost-effective compact simulator for basic training and skill development. Perfect for educational institutions and small-scale training centers.",
+      "category": "Entry Level",
+      "features": [
+        "Compact footprint design",
+        "Triple-screen HD display",
+        "Adjustable seating position",
+        "Standard peripheral support",
+        "Easy setup and deployment",
+        "Cost-effective solution",
+        "Educational software packages",
+        "Low maintenance requirements"
+      ],
+      "applications": [
+        "Driver Education",
+        "Basic Flight Training",
+        "Equipment Familiarization",
+        "Procedure Training",
+        "Academic Research",
+        "Skills Assessment"
+      ]
+    }
   }
 }
